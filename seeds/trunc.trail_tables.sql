@@ -1,0 +1,4 @@
+TRUNCATE
+  users, completed
+  RESTART IDENTITY CASCADE;
+ 
