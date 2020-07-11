@@ -2,7 +2,9 @@ const bcrypt = require("bcryptjs");
 const xss = require("xss");
 
 const UsersService = {
-  getAllUsers(db) {},
+  getAllUsers(db) {
+    
+  },
   hasUserWithUserName(db, user_name) {
     return db("users")
       .where({ user_name })
