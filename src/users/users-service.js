@@ -3,7 +3,7 @@ const xss = require("xss");
 
 const UsersService = {
   getAllUsers(db) {
-    
+    return db("users");
   },
   hasUserWithUserName(db, user_name) {
     return db("users")
