@@ -23,7 +23,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/completed", completedRouter);
 app.use("/api/leaderboards", leaderboardRouter);
 
-app.use(function errorHandler(error, req, res, next) {
+/*app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === "production") {
     response = { error: "Server error" };
@@ -32,6 +32,6 @@ app.use(function errorHandler(error, req, res, next) {
     response = { error: error.message, object: error };
   }
   res.status(500).json(response);
-});
+});*/
 
 module.exports = app;
