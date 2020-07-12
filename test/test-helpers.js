@@ -34,7 +34,7 @@ function makeUsersArray() {
   ];
 }
 
-function makeCompletedArray(users, trails) {
+function makeCompletedArray(users) {
   return [
     {
       id: 1,
@@ -63,9 +63,10 @@ function makeCompletedArray(users, trails) {
   ];
 }
 
-function makeTrailFixtures() {
+function makeTrailsFixtures() {
   const testUsers = makeUsersArray();
-  return { testUsers };
+  const testCompleted = makeCompletedArray(testUsers);
+  return { testUsers, testCompleted };
 }
 
 function cleanTables(db) {
@@ -113,8 +114,8 @@ function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
 module.exports = {
   makeUsersArray,
   makeCompletedArray,
-  makeTrailFixtures,
+  makeTrailsFixtures,
   cleanTables,
-  seedUsers,
   makeAuthHeader,
+  seedUsers,
 };

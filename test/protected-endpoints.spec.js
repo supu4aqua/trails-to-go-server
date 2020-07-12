@@ -5,11 +5,7 @@ const helpers = require("./test-helpers");
 describe("Protected endpoints", function () {
   let db;
 
-  const {
-    testUsers,
-    testArticles,
-    testComments,
-  } = helpers.makeArticlesFixtures();
+  const { testUsers, testCompleted } = helpers.makeTrailsFixtures();
 
   before("make knex instance", () => {
     db = knex({
@@ -25,26 +21,9 @@ describe("Protected endpoints", function () {
 
   afterEach("cleanup", () => helpers.cleanTables(db));
 
-  beforeEach("insert articles", () =>
-    helpers.seedArticlesTables(db, testUsers, testArticles, testComments)
-  );
+  beforeEach("insert users", () => helpers.seedUsers(db, testUsers));
 
   const protectedEndpoints = [
-    {
-      name: "GET /api/articles/:article_id",
-      path: "/api/articles/1",
-      method: supertest(app).get,
-    },
-    {
-      name: "GET /api/articles/:article_id/comments",
-      path: "/api/articles/1/comments",
-      method: supertest(app).get,
-    },
-    {
-      name: "POST /api/comments",
-      path: "/api/comments",
-      method: supertest(app).post,
-    },
     {
       name: "POST /api/auth/refresh",
       path: "/api/auth/refresh",
