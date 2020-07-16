@@ -1,26 +1,118 @@
-# Express Boilerplate!
+# Trails To Go Server
 
-This is a boilerplate project used for starting new projects!
+Where users can search for trails by zipcode and mark them as completed.
 
-## Set up
+<a href="https://trails-to-go-client.mesupi.vercel.app/" target="_blank">Live Version</a>
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+This repo contains the server-side API built with Node/Express. Looking for the front-end Trail-To-Go Client? 
+**[Click Here](https://github.com/supu4aqua/trails-to-go-client.git)**
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## Introduction
+Users can search for trails by zipcode and can also filter the list by trail rating or length.
+Users can also register and mark a trail as completed after logging in.
+User profile section shows the statistics based on the trails completed by the user.
+Leaderboard shows the top hikers based on trails completed
 
-## Scripts
+## Screen Captures
+#### Landing Page:
+![Landing Page](Landing.jpg)
 
-Start the application `npm start`
+#### Search Trail:
+![Search Trail](SearchTrail.jpg)
 
-Start nodemon for the application `npm run dev`
+#### User Profile:
+![Profile](Profile.jpg)
 
-Run the tests `npm test`
+#### Leaderboard: 
+![Leaderboard](Leaderboard.jpg)
 
-## Deploying
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+## Technology
+
+### Front End
+* [React](https://reactjs.org/)
+    * [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
+    * [React Router](https://reacttraining.com/react-router/)
+* HTML5
+* CSS3
+    * [CSS Modules](https://github.com/css-modules/css-modules)
+
+### Back End
+* [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/)
+    * [Mocha](https://mochajs.org/) test framework and [Chai](http://www.chaijs.com/) assertion library
+* [Postgres](https://www.postgresql.org)
+
+### Testing
+* [Jest](https://jestjs.io/en/)
+
+### Production
+* [Heroku](https://www.heroku.com/) Cloud Application Platform
+
+## Client - Install and run locally
+*** NOTE: The client makes AJAX calls to the [Trails To Go API](https://github.com/supu4aqua/trails-to-go-server.git), which should also be running in your development environment
+
+* Clone this repository:
+    * `git clone https://github.com/supu4aqua/trails-to-go-client.git`
+* Move into folder:
+    * `cd trails-to-go-client/`
+* Run `npm install`
+* Run `npm start`
+* In browser, navigate to `localhost:3000` or your specified port
+  
+* To test, run `npm test`
+
+## Server - Run Trail To Go API in a local development environment
+
+### Prerequisites
+* You will need these programs installed
+    * [Git](https://git-scm.com/)
+    * [Node.js](https://nodejs.org/en/)
+    * [npm](https://www.npmjs.com/)
+    * [Postgres](https://www.postgresql.org)
+  
+### Installation
+* Clone this repository:
+    * `git clone https://github.com/supu4aqua/trails-to-go-server.git`
+* Move into folder:
+    * `cd trails-to-go-server/`
+* Run `npm install`
+
+### Run Program
+* Start PostgresSQL local server: `postgres`
+* Run `npm start` (or `npm run dev` to run with nodemon which auto-restarts on save changes)
+* Make requests using the root: `localhost:8080` or your specified port
+
+### Test
+* Start PostgresSQL local server
+    * `postgres`
+* Run `npm test`
+
+
+## API Overview
+
+## API
+
+```
+/api
+.
+├── /users
+│   └── GET
+│       ├── /
+│   └── POST
+│       └── /
+├── /completed
+│   └── GET
+│       ├── /
+│   └── POST
+│       └── /
+├── /leaderboard
+│   └── GET
+│       ├── /
+
+```
+## Future Features
+* Show user completed trails as markers on Google Map in Profile section
+* Allow user to search trails based on current location
+* User should be allowed to add a rating
+* User should be allowedto leave feedback or comments
+* User should be able to post or share the completed trail details on Social Media
