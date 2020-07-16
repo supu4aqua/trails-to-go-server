@@ -100,20 +100,6 @@ describe("Users Endpoints", function () {
           });
       });
 
-      /*it(`responds 400 error when password isn't complex enough`, () => {
-        const userPasswordNotComplex = {
-          user_name: "test user_name",
-          password: "11AAaabb",
-          full_name: "test full_name",
-        };
-        return supertest(app)
-          .post("/api/users")
-          .send(userPasswordNotComplex)
-          .expect(400, {
-            error: `Password must contain one upper case, lower case, number and special character`,
-          });
-      });*/
-
       it(`responds 400 'User name already taken' when user_name isn't unique`, () => {
         const duplicateUser = {
           user_name: testUser.user_name,

@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const xss = require("xss");
 
 const CompletedService = {
+  /*Find a completed trails for user where user_id is id */
   getCompletedByUserId(db, id) {
     return db
       .from("completed")
@@ -9,6 +10,7 @@ const CompletedService = {
       .where("user_id", id);
   },
 
+  /*insert data into completed table */
   insertCompleted(db, newCompletedTrail) {
     return db
       .insert(newCompletedTrail)

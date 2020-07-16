@@ -5,16 +5,19 @@ const { requireAuth } = require("../middleware/jwt-auth");
 const authRouter = express.Router();
 const jsonBodyParser = express.json();
 
+/*Authenticate user at login */
 authRouter.post("/login", jsonBodyParser, (req, res, next) => {
   const { user_name, password } = req.body;
   const loginUser = { user_name, password };
 
+  /*Return an error if user name or password is missing*/
   for (const [key, value] of Object.entries(loginUser))
     if (value == null)
       return res.status(400).json({
         error: `Missing '${key}' in request body`,
       });
 
+  /*Return eror if authentication unsuccessful - Either username or password is incorrect */
   AuthService.getUserWithUserName(req.app.get("db"), loginUser.user_name)
     .then((dbUser) => {
       if (!dbUser)
@@ -41,6 +44,7 @@ authRouter.post("/login", jsonBodyParser, (req, res, next) => {
     .catch(next);
 });
 
+/*Authenticate user token whn a page is refresshed */
 authRouter.post("/refresh", requireAuth, (req, res) => {
   const sub = req.user.user_name;
   const payload = { user_id: req.user.id };

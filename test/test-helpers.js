@@ -37,28 +37,22 @@ function makeUsersArray() {
 function makeCompletedArray(users) {
   return [
     {
-      id: 1,
       trail_id: 705161,
-      user_id: users[0].id,
-      name: "Clairveille Conservation",
-      length: 12.1,
-      date_created: new Date("2029-01-22T16:28:32.615Z"),
+      user_id: 1,
+      name: "Clairveille",
+      length: 12.15,
     },
     {
-      id: 1,
-      trail_id: 705161,
-      user_id: users[1].id,
+      trail_id: 705162,
+      user_id: 1,
       name: "Clairveille Conservation",
-      length: 12.1,
-      date_created: new Date("2029-01-22T16:28:32.615Z"),
+      length: 12.15,
     },
     {
-      id: 1,
-      trail_id: 705161,
-      user_id: users[2].id,
-      name: "Clairveille Conservation",
-      length: 12.1,
-      date_created: new Date("2029-01-22T16:28:32.615Z"),
+      trail_id: 705163,
+      user_id: 1,
+      name: "Clairveille Conservation Park",
+      length: 12.15,
     },
   ];
 }
