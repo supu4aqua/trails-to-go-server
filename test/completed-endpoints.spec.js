@@ -26,7 +26,6 @@ describe("Completed Endpoints", function () {
   describe(`GET /api/completed`, () => {
     context("Given there are completed trails in the database", () => {
       const { testCompleted } = helpers.makeTrailsFixtures();
-      console.log(testCompleted);
       beforeEach("insert users", () => helpers.seedUsers(db, testUsers));
 
       beforeEach("insert completed", () => {
